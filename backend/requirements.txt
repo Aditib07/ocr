@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-multipart
+python-dotenv
+
+easyocr
+pdf2image
+pillow
+
+torch
+torchvision
+
+google-genai
+
+numpy
+opencv-python
