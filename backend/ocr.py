@@ -9,8 +9,13 @@ load_dotenv()
 POPPLER_PATH = os.getenv("POPPLER_PATH")
 
 # Initialize EasyOCR only once
-reader = easyocr.Reader(["en"])
+reader = None
 
+def get_reader():
+    global reader
+    if reader is None:
+        reader = easyocr.Reader(["en"])
+    return reader
 
 def extract_text_from_pdf(pdf_path):
     image_folder = "uploads/images"
@@ -35,7 +40,7 @@ def extract_text_from_pdf(pdf_path):
 
         page.save(image_path, "PNG")
 
-        results = reader.readtext(
+        results = get_reader().readtext(
             image_path,
             detail=0,
             paragraph=True

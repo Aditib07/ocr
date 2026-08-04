@@ -13,4 +13,4 @@ torchvision
 google-genai
 
 numpy
-opencv-python
+opencv-python-headless
